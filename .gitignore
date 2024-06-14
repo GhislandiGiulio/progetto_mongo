@@ -1,6 +1,9 @@
 # testing
 test.py
 
+# vscode specific
+.vscode
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

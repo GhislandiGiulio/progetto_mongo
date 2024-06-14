@@ -1,0 +1,12 @@
+OBBLIGATORIO:
+    - Visualizzare artista/i che partecipa/no al concerto
+    - Risalire al nome del concerto
+
+
+OPZIONALE:
+    - Ricerca di concerti in un intervallo di date
+    - Ricerca per vicinanza (concerto entro tot km da un punto)
+
+
+AGGIUNTIVO:
+    - Prezzo ridotto per categorie (bambini, anziani, donne in gravidanza)

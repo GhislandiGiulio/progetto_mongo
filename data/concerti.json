@@ -1,0 +1,1356 @@
+[
+    {
+        "nome": "Rock Night Milano",
+        "artisti": [
+            {
+                "nome": "Giulio",
+                "cognome": "Ghislandi"
+            },
+            {
+                "nome": "Emanuele",
+                "cognome": "Sassi"
+            }
+        ],
+        "generi": [
+            "Rock",
+            "Metal"
+        ],
+        "data": "2024-06-21",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                9.1168,
+                45.4518
+            ]
+        },
+        "provincia": "Milano",
+        "indirizzo": "via ABC 12",
+        "location": "Forum Assago",
+        "biglietti": [
+            {
+                "tipo": "retro palco",
+                "prezzo": 59,
+                "numero_disponibili": 320
+            },
+            {
+                "tipo": "tribuna",
+                "prezzo": 23,
+                "numero_disponibili": 487
+            },
+            {
+                "tipo": "golden circle",
+                "prezzo": 82,
+                "numero_disponibili": 244
+            }
+        ],
+        "citta": "Sesto San Giovanni"
+    },
+    {
+        "nome": "Pop & Jazz Evening",
+        "artisti": [
+            {
+                "nome": "Mario",
+                "cognome": "Rossi"
+            },
+            {
+                "nome": "Luca",
+                "cognome": "Bianchi"
+            }
+        ],
+        "generi": [
+            "Pop",
+            "Jazz"
+        ],
+        "data": "2024-07-05",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                12.4924,
+                41.8902
+            ]
+        },
+        "provincia": "Roma",
+        "indirizzo": "piazza XYZ 3",
+        "location": "Auditorium Parco della Musica",
+        "biglietti": [
+            {
+                "tipo": "platea",
+                "prezzo": 42,
+                "numero_disponibili": 161
+            },
+            {
+                "tipo": "standard",
+                "prezzo": 89,
+                "numero_disponibili": 126
+            }
+        ],
+        "citta": "Tivoli"
+    },
+    {
+        "nome": "Classical Night",
+        "artisti": [
+            {
+                "nome": "Andrea",
+                "cognome": "Verdi"
+            },
+            {
+                "nome": "Francesca",
+                "cognome": "Gialli"
+            }
+        ],
+        "generi": [
+            "Classica",
+            "Opera"
+        ],
+        "data": "2024-08-15",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                11.2558,
+                43.7696
+            ]
+        },
+        "provincia": "Firenze",
+        "indirizzo": "via Roma 10",
+        "location": "Teatro Verdi",
+        "biglietti": [
+            {
+                "tipo": "parterre",
+                "prezzo": 85,
+                "numero_disponibili": 344
+            },
+            {
+                "tipo": "premium",
+                "prezzo": 89,
+                "numero_disponibili": 6
+            }
+        ],
+        "citta": "Scandicci"
+    },
+    {
+        "nome": "Electronic Beats",
+        "artisti": [
+            {
+                "nome": "Laura",
+                "cognome": "Neri"
+            },
+            {
+                "nome": "Giovanni",
+                "cognome": "Blu"
+            }
+        ],
+        "generi": [
+            "Electronic",
+            "House"
+        ],
+        "data": "2024-09-30",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                7.6868,
+                45.0703
+            ]
+        },
+        "provincia": "Torino",
+        "indirizzo": "via Torino 45",
+        "location": "Pala Alpitour",
+        "biglietti": [
+            {
+                "tipo": "golden circle",
+                "prezzo": 149,
+                "numero_disponibili": 167
+            },
+            {
+                "tipo": "standard",
+                "prezzo": 10,
+                "numero_disponibili": 437
+            }
+        ],
+        "citta": "Moncalieri"
+    },
+    {
+        "nome": "Hip-Hop Vibes",
+        "artisti": [
+            {
+                "nome": "Elena",
+                "cognome": "Bianchi"
+            },
+            {
+                "nome": "Matteo",
+                "cognome": "Rossi"
+            }
+        ],
+        "generi": [
+            "Hip-Hop",
+            "R&B"
+        ],
+        "data": "2024-10-12",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                14.2681,
+                40.8518
+            ]
+        },
+        "provincia": "Napoli",
+        "indirizzo": "via Partenope 22",
+        "location": "Palapartenope",
+        "biglietti": [
+            {
+                "tipo": "platea",
+                "prezzo": 42,
+                "numero_disponibili": 238
+            },
+            {
+                "tipo": "retro palco",
+                "prezzo": 34,
+                "numero_disponibili": 323
+            }
+        ],
+        "citta": "Pozzuoli"
+    },
+    {
+        "nome": "Jazz & Blues Night",
+        "artisti": [
+            {
+                "nome": "Luigi",
+                "cognome": "Verde"
+            },
+            {
+                "nome": "Anna",
+                "cognome": "Rossi"
+            }
+        ],
+        "generi": [
+            "Jazz",
+            "Blues"
+        ],
+        "data": "2024-11-07",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                8.9463,
+                44.4056
+            ]
+        },
+        "provincia": "Genova",
+        "indirizzo": "piazza De Ferrari 5",
+        "location": "Teatro Carlo Felice",
+        "biglietti": [
+            {
+                "tipo": "standard",
+                "prezzo": 131,
+                "numero_disponibili": 123
+            },
+            {
+                "tipo": "seated",
+                "prezzo": 18,
+                "numero_disponibili": 24
+            }
+        ],
+        "citta": "Rapallo"
+    },
+    {
+        "nome": "Folk & World Music",
+        "artisti": [
+            {
+                "nome": "Franco",
+                "cognome": "Gialli"
+            },
+            {
+                "nome": "Alessandra",
+                "cognome": "Verdi"
+            }
+        ],
+        "generi": [
+            "Folk",
+            "World"
+        ],
+        "data": "2024-12-01",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                11.3426,
+                44.4949
+            ]
+        },
+        "provincia": "Bologna",
+        "indirizzo": "via Indipendenza 56",
+        "location": "Arena del Sole",
+        "biglietti": [
+            {
+                "tipo": "golden circle",
+                "prezzo": 122,
+                "numero_disponibili": 321
+            }
+        ],
+        "citta": "Imola"
+    },
+    {
+        "nome": "Reggae Night",
+        "artisti": [
+            {
+                "nome": "Sara",
+                "cognome": "Blu"
+            },
+            {
+                "nome": "Marco",
+                "cognome": "Rossi"
+            }
+        ],
+        "generi": [
+            "Reggae",
+            "Dub"
+        ],
+        "data": "2024-12-20",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                13.3613,
+                38.1157
+            ]
+        },
+        "provincia": "Palermo",
+        "indirizzo": "via Libert\u00c3\u00a0 88",
+        "location": "Teatro Politeama",
+        "biglietti": [
+            {
+                "tipo": "parterre",
+                "prezzo": 54,
+                "numero_disponibili": 9
+            }
+        ],
+        "citta": "Bagheria"
+    },
+    {
+        "nome": "Ska & Punk Fest",
+        "artisti": [
+            {
+                "nome": "Giovanna",
+                "cognome": "Bianchi"
+            },
+            {
+                "nome": "Paolo",
+                "cognome": "Verdi"
+            }
+        ],
+        "generi": [
+            "Ska",
+            "Punk"
+        ],
+        "data": "2025-01-15",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                10.9916,
+                45.4384
+            ]
+        },
+        "provincia": "Verona",
+        "indirizzo": "piazza Bra 1",
+        "location": "Arena di Verona",
+        "biglietti": [
+            {
+                "tipo": "premium",
+                "prezzo": 101,
+                "numero_disponibili": 81
+            },
+            {
+                "tipo": "tribuna",
+                "prezzo": 118,
+                "numero_disponibili": 27
+            }
+        ],
+        "citta": "Villafranca di Verona"
+    },
+    {
+        "nome": "Indie Rock Night",
+        "artisti": [
+            {
+                "nome": "Alessia",
+                "cognome": "Rossi"
+            },
+            {
+                "nome": "Giuseppe",
+                "cognome": "Verde"
+            }
+        ],
+        "generi": [
+            "Rock",
+            "Indie"
+        ],
+        "data": "2025-02-10",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                12.4964,
+                41.9028
+            ]
+        },
+        "provincia": "Roma",
+        "indirizzo": "via del Corso 100",
+        "location": "Palalottomatica",
+        "biglietti": [
+            {
+                "tipo": "retro palco",
+                "prezzo": 107,
+                "numero_disponibili": 273
+            }
+        ],
+        "citta": "Tivoli"
+    },
+    {
+        "nome": "Soulful Night",
+        "artisti": [
+            {
+                "nome": "Chiara",
+                "cognome": "Neri"
+            },
+            {
+                "nome": "Lorenzo",
+                "cognome": "Gialli"
+            }
+        ],
+        "generi": [
+            "Soul",
+            "R&B"
+        ],
+        "data": "2025-03-03",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                9.2109,
+                45.4642
+            ]
+        },
+        "provincia": "Milano",
+        "indirizzo": "via Dante 5",
+        "location": "Mediolanum Forum",
+        "biglietti": [
+            {
+                "tipo": "platea",
+                "prezzo": 37,
+                "numero_disponibili": 376
+            },
+            {
+                "tipo": "standard",
+                "prezzo": 149,
+                "numero_disponibili": 125
+            }
+        ],
+        "citta": "Sesto San Giovanni"
+    },
+    {
+        "nome": "Latin Rhythms",
+        "artisti": [
+            {
+                "nome": "Carmen",
+                "cognome": "Garcia"
+            },
+            {
+                "nome": "Miguel",
+                "cognome": "Rodriguez"
+            }
+        ],
+        "generi": [
+            "Latin",
+            "Salsa"
+        ],
+        "data": "2025-04-12",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                8.6011,
+                45.1527
+            ]
+        },
+        "provincia": "Varese",
+        "indirizzo": "via Cavour 20",
+        "location": "Teatro di Varese",
+        "biglietti": [
+            {
+                "tipo": "box",
+                "prezzo": 19,
+                "numero_disponibili": 152
+            },
+            {
+                "tipo": "VIP",
+                "prezzo": 167,
+                "numero_disponibili": 167
+            }
+        ],
+        "citta": "Busto Arsizio"
+    },
+    {
+        "nome": "Metal Fest",
+        "artisti": [
+            {
+                "nome": "Giovanni",
+                "cognome": "Rossi"
+            },
+            {
+                "nome": "Roberto",
+                "cognome": "Neri"
+            }
+        ],
+        "generi": [
+            "Metal",
+            "Heavy Metal"
+        ],
+        "data": "2025-05-15",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                13.3508,
+                38.1171
+            ]
+        },
+        "provincia": "Palermo",
+        "indirizzo": "via Roma 8",
+        "location": "Teatro Massimo",
+        "biglietti": [
+            {
+                "tipo": "golden circle",
+                "prezzo": 173,
+                "numero_disponibili": 59
+            },
+            {
+                "tipo": "premium",
+                "prezzo": 98,
+                "numero_disponibili": 359
+            }
+        ],
+        "citta": "Bagheria"
+    },
+    {
+        "nome": "Indie Folk Night",
+        "artisti": [
+            {
+                "nome": "Matteo",
+                "cognome": "Verdi"
+            },
+            {
+                "nome": "Sara",
+                "cognome": "Gialli"
+            },
+            {
+                "nome": "Francesco",
+                "cognome": "Blu"
+            }
+        ],
+        "generi": [
+            "Indie Folk",
+            "Acoustic"
+        ],
+        "data": "2025-06-10",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                10.4017,
+                43.7085
+            ]
+        },
+        "provincia": "Pisa",
+        "indirizzo": "via Santa Maria 19",
+        "location": "Teatro Verdi",
+        "biglietti": [
+            {
+                "tipo": "standard",
+                "prezzo": 45,
+                "numero_disponibili": 472
+            },
+            {
+                "tipo": "premium",
+                "prezzo": 39,
+                "numero_disponibili": 363
+            },
+            {
+                "tipo": "box",
+                "prezzo": 73,
+                "numero_disponibili": 483
+            }
+        ],
+        "citta": "Pontedera"
+    },
+    {
+        "nome": "Blues Night",
+        "artisti": [
+            {
+                "nome": "Antonio",
+                "cognome": "Verdi"
+            },
+            {
+                "nome": "Maria",
+                "cognome": "Rossi"
+            }
+        ],
+        "generi": [
+            "Blues",
+            "Soul"
+        ],
+        "data": "2025-07-15",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                11.2558,
+                43.7696
+            ]
+        },
+        "provincia": "Firenze",
+        "indirizzo": "piazza della Signoria 1",
+        "location": "Palazzo Vecchio",
+        "biglietti": [
+            {
+                "tipo": "tribuna",
+                "prezzo": 164,
+                "numero_disponibili": 254
+            }
+        ],
+        "citta": "Scandicci"
+    },
+    {
+        "nome": "Rock Fest",
+        "artisti": [
+            {
+                "nome": "Stefano",
+                "cognome": "Rossi"
+            },
+            {
+                "nome": "Federico",
+                "cognome": "Verdi"
+            },
+            {
+                "nome": "Davide",
+                "cognome": "Gialli"
+            }
+        ],
+        "generi": [
+            "Rock",
+            "Alternative"
+        ],
+        "data": "2025-08-20",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                12.4964,
+                41.9028
+            ]
+        },
+        "provincia": "Roma",
+        "indirizzo": "via dei Fori Imperiali",
+        "location": "Circo Massimo",
+        "biglietti": [
+            {
+                "tipo": "box",
+                "prezzo": 189,
+                "numero_disponibili": 338
+            }
+        ],
+        "citta": "Tivoli"
+    },
+    {
+        "nome": "Electronic Night",
+        "artisti": [
+            {
+                "nome": "Lorenzo",
+                "cognome": "Neri"
+            },
+            {
+                "nome": "Giulia",
+                "cognome": "Blu"
+            }
+        ],
+        "generi": [
+            "Electronic",
+            "Techno"
+        ],
+        "data": "2025-09-25",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                10.3279,
+                45.4791
+            ]
+        },
+        "provincia": "Brescia",
+        "indirizzo": "via Trieste 4",
+        "location": "Piazza della Loggia",
+        "biglietti": [
+            {
+                "tipo": "golden circle",
+                "prezzo": 58,
+                "numero_disponibili": 7
+            },
+            {
+                "tipo": "VIP",
+                "prezzo": 128,
+                "numero_disponibili": 31
+            },
+            {
+                "tipo": "premium",
+                "prezzo": 121,
+                "numero_disponibili": 176
+            }
+        ],
+        "citta": "Desenzano del Garda"
+    },
+    {
+        "nome": "Hip-Hop Party",
+        "artisti": [
+            {
+                "nome": "Luigi",
+                "cognome": "Verdi"
+            },
+            {
+                "nome": "Chiara",
+                "cognome": "Gialli"
+            }
+        ],
+        "generi": [
+            "Hip-Hop",
+            "Rap"
+        ],
+        "data": "2025-10-15",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                9.19,
+                45.4642
+            ]
+        },
+        "provincia": "Milano",
+        "indirizzo": "via Montenapoleone 8",
+        "location": "Teatro alla Scala",
+        "biglietti": [
+            {
+                "tipo": "premium",
+                "prezzo": 120,
+                "numero_disponibili": 481
+            }
+        ],
+        "citta": "Sesto San Giovanni"
+    },
+    {
+        "nome": "Jazz Festival",
+        "artisti": [
+            {
+                "nome": "Antonio",
+                "cognome": "Rossi"
+            },
+            {
+                "nome": "Giovanni",
+                "cognome": "Verdi"
+            },
+            {
+                "nome": "Elena",
+                "cognome": "Neri"
+            }
+        ],
+        "generi": [
+            "Jazz",
+            "Blues"
+        ],
+        "data": "2025-11-10",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                9.1014,
+                45.8121
+            ]
+        },
+        "provincia": "Varese",
+        "indirizzo": "via XX Settembre 12",
+        "location": "Teatro Apollonio",
+        "biglietti": [
+            {
+                "tipo": "seated",
+                "prezzo": 81,
+                "numero_disponibili": 398
+            },
+            {
+                "tipo": "retro palco",
+                "prezzo": 32,
+                "numero_disponibili": 341
+            }
+        ],
+        "citta": "Busto Arsizio"
+    },
+    {
+        "nome": "Soul Night",
+        "artisti": [
+            {
+                "nome": "Maria",
+                "cognome": "Blu"
+            },
+            {
+                "nome": "Giovanni",
+                "cognome": "Verdi"
+            }
+        ],
+        "generi": [
+            "Soul",
+            "R&B"
+        ],
+        "data": "2025-12-01",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                9.1168,
+                45.4518
+            ]
+        },
+        "provincia": "Milano",
+        "indirizzo": "via ABC 12",
+        "location": "Forum Assago",
+        "biglietti": [
+            {
+                "tipo": "retro palco",
+                "prezzo": 117,
+                "numero_disponibili": 483
+            },
+            {
+                "tipo": "tribuna",
+                "prezzo": 19,
+                "numero_disponibili": 375
+            },
+            {
+                "tipo": "standard",
+                "prezzo": 5,
+                "numero_disponibili": 251
+            }
+        ],
+        "citta": "Sesto San Giovanni"
+    },
+    {
+        "nome": "Pop Night",
+        "artisti": [
+            {
+                "nome": "Laura",
+                "cognome": "Rossi"
+            },
+            {
+                "nome": "Federico",
+                "cognome": "Neri"
+            }
+        ],
+        "generi": [
+            "Pop",
+            "Dance"
+        ],
+        "data": "2025-12-15",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                10.4017,
+                43.7085
+            ]
+        },
+        "provincia": "Pisa",
+        "indirizzo": "piazza dei Miracoli",
+        "location": "Camposanto Monumentale",
+        "biglietti": [
+            {
+                "tipo": "premium",
+                "prezzo": 2,
+                "numero_disponibili": 364
+            }
+        ],
+        "citta": "Pontedera"
+    },
+    {
+        "nome": "Classical Music Night",
+        "artisti": [
+            {
+                "nome": "Elena",
+                "cognome": "Verdi"
+            },
+            {
+                "nome": "Giorgio",
+                "cognome": "Neri"
+            }
+        ],
+        "generi": [
+            "Classica",
+            "Opera"
+        ],
+        "data": "2026-01-05",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                12.4964,
+                41.9028
+            ]
+        },
+        "provincia": "Roma",
+        "indirizzo": "piazza Navona 10",
+        "location": "Teatro dell'Opera",
+        "biglietti": [
+            {
+                "tipo": "tribuna",
+                "prezzo": 200,
+                "numero_disponibili": 459
+            },
+            {
+                "tipo": "VIP",
+                "prezzo": 152,
+                "numero_disponibili": 277
+            }
+        ],
+        "citta": "Tivoli"
+    },
+    {
+        "nome": "Acoustic Night",
+        "artisti": [
+            {
+                "nome": "Francesca",
+                "cognome": "Verdi"
+            },
+            {
+                "nome": "Davide",
+                "cognome": "Rossi"
+            }
+        ],
+        "generi": [
+            "Acoustic",
+            "Indie"
+        ],
+        "data": "2026-02-10",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                10.9916,
+                45.4384
+            ]
+        },
+        "provincia": "Verona",
+        "indirizzo": "via Mazzini 8",
+        "location": "Teatro Romano",
+        "biglietti": [
+            {
+                "tipo": "seated",
+                "prezzo": 142,
+                "numero_disponibili": 264
+            },
+            {
+                "tipo": "standard",
+                "prezzo": 59,
+                "numero_disponibili": 152
+            }
+        ],
+        "citta": "Villafranca di Verona"
+    },
+    {
+        "nome": "Rock & Blues Night",
+        "artisti": [
+            {
+                "nome": "Luca",
+                "cognome": "Neri"
+            },
+            {
+                "nome": "Elena",
+                "cognome": "Gialli"
+            }
+        ],
+        "generi": [
+            "Rock",
+            "Blues"
+        ],
+        "data": "2026-03-20",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                7.6868,
+                45.0703
+            ]
+        },
+        "provincia": "Torino",
+        "indirizzo": "via Garibaldi 15",
+        "location": "Teatro Regio",
+        "biglietti": [
+            {
+                "tipo": "platea",
+                "prezzo": 29,
+                "numero_disponibili": 197
+            },
+            {
+                "tipo": "premium",
+                "prezzo": 82,
+                "numero_disponibili": 1
+            }
+        ],
+        "citta": "Moncalieri"
+    },
+    {
+        "nome": "Folk Festival",
+        "artisti": [
+            {
+                "nome": "Giuseppe",
+                "cognome": "Rossi"
+            },
+            {
+                "nome": "Laura",
+                "cognome": "Neri"
+            },
+            {
+                "nome": "Andrea",
+                "cognome": "Verdi"
+            }
+        ],
+        "generi": [
+            "Folk",
+            "World"
+        ],
+        "data": "2026-04-25",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                14.2681,
+                40.8518
+            ]
+        },
+        "provincia": "Napoli",
+        "indirizzo": "piazza Plebiscito",
+        "location": "Teatro San Carlo",
+        "biglietti": [
+            {
+                "tipo": "VIP",
+                "prezzo": 56,
+                "numero_disponibili": 399
+            },
+            {
+                "tipo": "golden circle",
+                "prezzo": 76,
+                "numero_disponibili": 7
+            }
+        ],
+        "citta": "Pozzuoli"
+    },
+    {
+        "nome": "Reggae Vibes",
+        "artisti": [
+            {
+                "nome": "Marco",
+                "cognome": "Gialli"
+            },
+            {
+                "nome": "Elena",
+                "cognome": "Verdi"
+            }
+        ],
+        "generi": [
+            "Reggae",
+            "Dub"
+        ],
+        "data": "2026-05-20",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                8.9463,
+                44.4056
+            ]
+        },
+        "provincia": "Genova",
+        "indirizzo": "via Garibaldi 12",
+        "location": "Palazzo Ducale",
+        "biglietti": [
+            {
+                "tipo": "golden circle",
+                "prezzo": 148,
+                "numero_disponibili": 137
+            },
+            {
+                "tipo": "VIP",
+                "prezzo": 197,
+                "numero_disponibili": 483
+            },
+            {
+                "tipo": "platea",
+                "prezzo": 184,
+                "numero_disponibili": 427
+            },
+            {
+                "tipo": "parterre",
+                "prezzo": 166,
+                "numero_disponibili": 102
+            }
+        ],
+        "citta": "Rapallo"
+    },
+    {
+        "nome": "Metal Night",
+        "artisti": [
+            {
+                "nome": "Alessandro",
+                "cognome": "Rossi"
+            },
+            {
+                "nome": "Roberta",
+                "cognome": "Neri"
+            }
+        ],
+        "generi": [
+            "Metal",
+            "Heavy Metal"
+        ],
+        "data": "2026-06-30",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                12.4964,
+                41.9028
+            ]
+        },
+        "provincia": "Roma",
+        "indirizzo": "via del Corso 100",
+        "location": "Palalottomatica",
+        "biglietti": [
+            {
+                "tipo": "box",
+                "prezzo": 97,
+                "numero_disponibili": 13
+            },
+            {
+                "tipo": "retro palco",
+                "prezzo": 124,
+                "numero_disponibili": 37
+            },
+            {
+                "tipo": "parterre",
+                "prezzo": 196,
+                "numero_disponibili": 329
+            }
+        ],
+        "citta": "Tivoli"
+    },
+    {
+        "nome": "Ska Night",
+        "artisti": [
+            {
+                "nome": "Francesco",
+                "cognome": "Verdi"
+            },
+            {
+                "nome": "Anna",
+                "cognome": "Rossi"
+            }
+        ],
+        "generi": [
+            "Ska",
+            "Punk"
+        ],
+        "data": "2026-07-20",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                10.9916,
+                45.4384
+            ]
+        },
+        "provincia": "Verona",
+        "indirizzo": "via Mazzini 8",
+        "location": "Teatro Romano",
+        "biglietti": [
+            {
+                "tipo": "premium",
+                "prezzo": 37,
+                "numero_disponibili": 76
+            }
+        ],
+        "citta": "Villafranca di Verona"
+    },
+    {
+        "nome": "Folk Night",
+        "artisti": [
+            {
+                "nome": "Luca",
+                "cognome": "Rossi"
+            },
+            {
+                "nome": "Laura",
+                "cognome": "Neri"
+            }
+        ],
+        "generi": [
+            "Folk",
+            "World"
+        ],
+        "data": "2026-08-30",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                10.3279,
+                45.4791
+            ]
+        },
+        "provincia": "Brescia",
+        "indirizzo": "via Trieste 4",
+        "location": "Piazza della Loggia",
+        "biglietti": [
+            {
+                "tipo": "tribuna",
+                "prezzo": 165,
+                "numero_disponibili": 335
+            }
+        ],
+        "citta": "Desenzano del Garda"
+    },
+    {
+        "nome": "Jazz Night",
+        "artisti": [
+            {
+                "nome": "Antonio",
+                "cognome": "Neri"
+            },
+            {
+                "nome": "Maria",
+                "cognome": "Gialli"
+            }
+        ],
+        "generi": [
+            "Jazz",
+            "Blues"
+        ],
+        "data": "2026-09-10",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                8.9463,
+                44.4056
+            ]
+        },
+        "provincia": "Genova",
+        "indirizzo": "via Garibaldi 12",
+        "location": "Palazzo Ducale",
+        "biglietti": [
+            {
+                "tipo": "parterre",
+                "prezzo": 158,
+                "numero_disponibili": 213
+            }
+        ],
+        "citta": "Rapallo"
+    },
+    {
+        "nome": "Latin Night",
+        "artisti": [
+            {
+                "nome": "Miguel",
+                "cognome": "Garcia"
+            },
+            {
+                "nome": "Carmen",
+                "cognome": "Rodriguez"
+            }
+        ],
+        "generi": [
+            "Latin",
+            "Salsa"
+        ],
+        "data": "2026-10-20",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                13.3613,
+                38.1157
+            ]
+        },
+        "provincia": "Palermo",
+        "indirizzo": "via Libert\u00c3\u00a0 88",
+        "location": "Teatro Politeama",
+        "biglietti": [
+            {
+                "tipo": "golden circle",
+                "prezzo": 97,
+                "numero_disponibili": 384
+            }
+        ],
+        "citta": "Bagheria"
+    },
+    {
+        "nome": "Electronic Beats Night",
+        "artisti": [
+            {
+                "nome": "Giovanni",
+                "cognome": "Verdi"
+            },
+            {
+                "nome": "Chiara",
+                "cognome": "Rossi"
+            }
+        ],
+        "generi": [
+            "Electronic",
+            "House"
+        ],
+        "data": "2026-11-15",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                7.6868,
+                45.0703
+            ]
+        },
+        "provincia": "Torino",
+        "indirizzo": "via Torino 45",
+        "location": "Pala Alpitour",
+        "biglietti": [
+            {
+                "tipo": "retro palco",
+                "prezzo": 20,
+                "numero_disponibili": 454
+            },
+            {
+                "tipo": "standard",
+                "prezzo": 113,
+                "numero_disponibili": 455
+            },
+            {
+                "tipo": "seated",
+                "prezzo": 132,
+                "numero_disponibili": 46
+            },
+            {
+                "tipo": "box",
+                "prezzo": 124,
+                "numero_disponibili": 483
+            }
+        ],
+        "citta": "Moncalieri"
+    },
+    {
+        "nome": "Rock Vibes",
+        "artisti": [
+            {
+                "nome": "Alessia",
+                "cognome": "Blu"
+            },
+            {
+                "nome": "Federico",
+                "cognome": "Neri"
+            }
+        ],
+        "generi": [
+            "Rock",
+            "Indie"
+        ],
+        "data": "2026-12-10",
+        "coordinate": {
+            "type": "Point",
+            "coordinates": [
+                14.2681,
+                40.8518
+            ]
+        },
+        "provincia": "Napoli",
+        "indirizzo": "via Toledo 80",
+        "location": "Auditorium Rai",
+        "biglietti": [
+            {
+                "tipo": "retro palco",
+                "prezzo": 6,
+                "numero_disponibili": 159
+            }
+        ],
+        "citta": "Pozzuoli"
+    }
+]

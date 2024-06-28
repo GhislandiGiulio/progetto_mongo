@@ -42,7 +42,7 @@ def insert(data, nome_collezione):
 
 
 if __name__ == '__main__':
-    connessione_db(uri="mongodb+srv://giulioghislandi:NsR0y8Sf1ypk11O8@cluster0.nlkhmot.mongodb.net/")
+    connessione_db(uri="mongodb://localhost:27017")
 
     # estrazione concerti
     concerti = estrai_concerti()

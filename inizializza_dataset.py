@@ -1,13 +1,15 @@
 import json
 from pymongo import MongoClient
 
+# importazione delle costanti del db
+from db import uri
+from db import nome_db
+
+# impostazione della cartella di esecuzione corretta
 import os
 script_dir = os.path.dirname(__file__)
 os.chdir(script_dir)
 
-# definizione costanti
-client = None
-nome_db = "db_concerti"
 
 def connessione_db(uri: str):
     """
@@ -42,7 +44,7 @@ def insert(data, nome_collezione):
 
 
 if __name__ == '__main__':
-    connessione_db(uri="mongodb://localhost:27017")
+    connessione_db(uri)
 
     # estrazione concerti
     concerti = estrai_concerti()

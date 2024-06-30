@@ -33,3 +33,15 @@ class DatabaseConcerti:
             return True
         
         return False
+    
+    def check_credenziali(self, username, password):
+        # selezione della collezione
+        coll = self.db["users"]
+
+        # query di ricerca dell'utente
+        user = coll.find_one({"username": username, "password": password})
+
+        if user:
+            return True
+        
+        return False

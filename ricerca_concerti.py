@@ -103,10 +103,6 @@ def registrazione():
             print("Il nome utente deve essere lungo almeno 5 caratteri.")
             continue
 
-        ### 
-        ### TODO: aggiungere check sul db esistenza del nome utente. Se già esiste, fare reinserire
-        ###
-
         if db_concerti.esistenza_utente(username) == True:
             print("Nome utente già esistente. Riprova.")
             continue

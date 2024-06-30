@@ -1,21 +1,35 @@
 from pymongo import MongoClient
 
-# definizione costanti
-uri = "mongodb+srv://giulioghislandi:NsR0y8Sf1ypk11O8@cluster0.nlkhmot.mongodb.net/"
-nome_db = "db_concerti"
 
-# connessione al database MongoDB
-client = MongoClient(uri)
-db = client[nome_db]
+class DatabaseConcerti:
 
-def inserisci_nuovo_utente(utente: dict):
-    """
-    Funzione che inserisce un utente nel database
-    """
+    def __init__(self) -> None:
+        # definizione costanti
+        self.uri = "mongodb://localhost:27017"
+        self.nome_db = "db_concerti"
 
-    global client, db
+        # connessione al database MongoDB
+        self.client = MongoClient(self.uri)
+        self.db = self.client[self.nome_db]
 
-    # selezione della collezione
-    coll = db["users"]
+    def inserisci_nuovo_utente(self, utente: dict):
+        """
+        Funzione che inserisce un utente nel database
+        """
+        # selezione della collezione
+        coll = self.db["users"]
 
-    coll.insert_one(utente)
+        coll.insert_one(utente)
+
+    def esistenza_utente(self, username):
+
+        # selezione della collezione
+        coll = self.db["users"]
+
+        # query di ricerca dell'utente
+        user = coll.find_one({"username": username})
+
+        if user:
+            return True
+        
+        return False

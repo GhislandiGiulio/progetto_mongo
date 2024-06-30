@@ -48,7 +48,7 @@ def menu():
 
     # menu se l'utente è loggato
     if utente_attivo:
-        scelta = input("Inserisci un'opzione: \n1 - Logout\n2 - Ricerca\nq - Esci\n\nScelta: ")
+        scelta = input("Inserisci un'opzione: \n1 - Logout\n2 - Ricerca\n3 - Mostra i tuoi biglietti\nq - Esci\n\nScelta: ")
 
         match scelta:
             case "1":
@@ -56,6 +56,9 @@ def menu():
 
             case "2":
                 ricerca()
+
+            case "3":
+                mostra_biglietti()
 
             case "q":
                 print("Sto eseguendo l'uscita dal programma...")
@@ -86,6 +89,11 @@ def menu():
             case _:
                 print("Scelta non valida. Riprova.")
                 input("Premi 'invio' per continuare...")
+
+@schermata
+def mostra_biglietti():
+    db_concerti.mostra_biglietti(utente_attivo)
+    input("Premi 'invio' per continuare...")
 
 @ schermata
 def registrazione():
@@ -475,7 +483,6 @@ def ricerca_per_data():
 
     __acquista_biglietto(concerti[scelta-1])
     
-
 
 if __name__ == "__main__":
     while True:

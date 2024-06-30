@@ -40,6 +40,9 @@ if __name__ == '__main__':
     # inserimento concerti
     insert(concerti, "concerti")
 
+    # creazione indice geospaziale
+    db_concerti.crea_indice_geospaziale()
+
     # chiusura connessione
     db_concerti.client.close()
 

@@ -93,3 +93,40 @@ class DatabaseConcerti:
         coll.insert_one({"id_concerto": id_concerto, "id_utente": self.__id_utente(utente), "tipologia": biglietto["tipo"], "prezzo": biglietto["prezzo"]})
 
         return True
+    
+    def mostra_biglietti(self, utente):
+        
+        coll = self.db["biglietti"]
+
+        id_utente = self.__id_utente(utente)
+
+        query = {"id_utente": id_utente}
+        
+        biglietti = list(coll.find(query))
+
+        if len(biglietti) == 0:
+            print("Non hai biglietti")
+        
+        for biglietto in biglietti:
+            
+            coll = self.db["concerti"]  
+
+            id_concerto = biglietto["id_concerto"]
+
+            query = {"_id": id_concerto}
+
+            concerto = coll.find_one(query)
+
+            print("----------------------------------------------------------------")
+            print("Concerto:", concerto.get("nome"))
+            print("Provincia:", concerto.get("provincia"))
+            print("Città:", concerto.get("citta"))
+            print("Indirizzo:", concerto.get("indirizzo"))
+            print("Location:", concerto.get("location"))
+            print("Data:", concerto.get("data"))
+
+if __name__ == "__main__":
+
+    db = DatabaseConcerti()
+
+    db.mostra_biglietti("giulio")

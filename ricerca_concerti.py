@@ -376,6 +376,8 @@ def ricerca_per_data():
     for concerto in nomi_concerti:
         print(f"{concerto["nome"]}             [{concerto["data"]}]")
     
+    input("Premi 'invio' per continuare...")
+    
 
 
 

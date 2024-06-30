@@ -34,6 +34,15 @@ class DatabaseConcerti:
         
         return False
     
+    def __id_utente(self, username):
+
+        coll = self.db["users"]
+
+        # query di ricerca dell'utente
+        user = coll.find_one({"username": username})
+
+        return user["_id"]
+    
     def check_credenziali(self, username, password):
         # selezione della collezione
         coll = self.db["users"]
@@ -53,3 +62,34 @@ class DatabaseConcerti:
         results = coll.find_one(concerto)
 
         return results
+    
+    def acquisto_biglietto(self, id_concerto, indice_biglietto, utente):
+        
+        coll = self.db["concerti"]
+
+
+        # ricerca del concerto
+        concerto = coll.find_one(
+                {"_id": id_concerto}
+        )
+
+        # controllo se il tipo di biglietto è disponibile
+        biglietto = concerto["biglietti"][indice_biglietto]
+
+        if biglietto["numero_disponibili"] <= 0:
+            return False
+        
+        # diminuzione del numero di biglietti disponibili
+        coll.find_one_and_update(
+                {"_id": id_concerto, "biglietti.{}".format(indice_biglietto): {"$exists": True}},
+                {"$inc": {"biglietti.{}.numero_disponibili".format(indice_biglietto): -1}},
+                return_document=True
+            )
+        
+        # aggiunta del biglietto nel db
+
+        coll = self.db["biglietti"]
+
+        coll.insert_one({"id_concerto": id_concerto, "id_utente": self.__id_utente(utente), "tipologia": biglietto["tipo"], "prezzo": biglietto["prezzo"]})
+
+        return True

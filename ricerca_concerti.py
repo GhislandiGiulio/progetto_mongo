@@ -297,17 +297,21 @@ def ricerca_per_nome():
     indirizzo = concerto.get("indirizzo","Informazione non disponibile")
     
 
-    print("Alcune informazioni importanti sul tuo concerto:\n")
+    print("\nAlcune informazioni importanti sul tuo concerto:")
     print("\n--------------------------------------------------")
     print(f"artisti: {artisti}\ngeneri: {generi}\ndata: {data}\ncittà: {città}\nprovincia: {provincia}\nlocation: {location}\nindirizzo: {indirizzo}")
+    
+    opzione_acquisto = input("\nIntendi procedere con l'acquisto di un biglietto? y/n")
 
-
-    __acquista_biglietto(concerto)
+    if opzione_acquisto == "y":
+        __acquista_biglietto(concerto)
+    else:
+        input("Premi invio per uscire...")
 
 @schermata
 def __acquista_biglietto(concerto):
 
-    print(f"Biglietti del concerto: {concerto.get("nome")}")
+    print(f"Biglietti del concerto: {concerto.get("nome")}\n")
 
     biglietti = []
 
@@ -319,18 +323,18 @@ def __acquista_biglietto(concerto):
         biglietti.append(f"tipologia: {tipo}, prezzo: {prezzo} €, posti disponibili: {disponibili}")
 
     for i, biglietto in enumerate(biglietti, start=1):
-        print(f"   {i}-    {biglietto}")
+        print(f"{i} -  {biglietto}")
 
     print("\n--------------------------------------------------\n")
 
-    scelta = input("Vuoi procedere all'acquisto di uno dei biglietti?\n[y/n]")
+    scelta = input("Vuoi procedere all'acquisto di uno dei biglietti? [y/n]\n")
     
     while True:
         match scelta:
 
             case "y":
                 try:
-                    indice_biglietto = input("Inserisci l'indice del biglietto da acquistare (non inserire nulla per tornare al menu): ")
+                    indice_biglietto = input("\nInserisci l'indice del biglietto da acquistare (non inserire nulla per tornare al menu): ")
 
                     if indice_biglietto == "":
                         return
@@ -338,29 +342,29 @@ def __acquista_biglietto(concerto):
                     indice_biglietto = int(indice_biglietto)
 
                     if indice_biglietto > len(biglietti) or indice_biglietto < 1:
-                        print("Scegli un biglietto valido.")
+                        print("\nScegli un biglietto valido.")
                         continue
 
                 except:
-                    print("Inserimento non valido. Riprova.")
+                    print("\nInserimento non valido. Riprova.")
                     continue
 
                 esito = db_concerti.acquisto_biglietto(concerto.get("_id"), indice_biglietto-1, utente_attivo)
 
                 if esito:
-                    print("Acquisto effettuato con successo!")
-                    input("Premi 'invio' per tornare al menu...")
+                    print("\nAcquisto effettuato con successo!")
+                    input("\nPremi 'invio' per tornare al menu...")
                     return
                 
-                print("Acquisto non riuscito. Riprova.")
+                print("\nAcquisto non riuscito. Riprova.")
 
             case "n":
-                print("Acquisto annullato.")
-                input("Premi 'invio' per tornare al menu...")
+                print("\nAcquisto annullato.")
+                input("\nPremi 'invio' per tornare al menu...")
                 return
             
             case _:
-                print("Scelta non valida. Riprova.")
+                print("\nScelta non valida. Riprova.")
                 continue
 
 @ schermata
@@ -387,14 +391,14 @@ def ricerca_per_artista():
 
     numero_risultati = len(concerti)
 
-    print("Questi sono i concerti disponibili:\n")
+    print("\nQuesti sono i concerti disponibili:\n")
     for i, concerto in enumerate(concerti, start=1):
-        print(f"{i}-   {concerto["nome"]}             [{concerto["data"]}]")
+        print(f"{i} -  {concerto["nome"]}             [{concerto["data"]}]")
     
     while True:
 
         try:
-            scelta = input("Inserisci l'indice del concerto a cui sei interessato (lascia vuoto per tornare al menu): ")
+            scelta = input("\nInserisci l'indice del concerto a cui sei interessato (lascia vuoto per tornare al menu): ")
 
             if scelta == "":
                 return
@@ -431,7 +435,7 @@ def ricerca_per_data():
             datetime.strptime(data1,r"%Y-%m-%d")
             break
         except ValueError:
-            print("Devi inserire la data correttamente")
+            print("\nDevi inserire la data correttamente")
         
     while True:
         try: 
@@ -439,7 +443,7 @@ def ricerca_per_data():
             datetime.strptime(data1,r"%Y-%m-%d")
             break
         except ValueError:
-            print("Devi inserire la data correttamente")
+            print("\nDevi inserire la data correttamente")
     
     date = [data1, data2]
     date.sort()
@@ -452,14 +456,14 @@ def ricerca_per_data():
 
     numero_risultati = len(concerti)
 
-    print("Questi sono i concerti disponibili:\n")
+    print("\nQuesti sono i concerti disponibili:\n")
     for i, concerto in enumerate(concerti, start=1):
-        print(f"{i}-   {concerto["nome"]}             [{concerto["data"]}]")
+        print(f"{i} -  {concerto["nome"]}             [{concerto["data"]}]")
     
     while True:
 
         try:
-            scelta = input("Inserisci l'indice del concerto a cui sei interessato (lascia vuoto per tornare al menu): ")
+            scelta = input("\nInserisci l'indice del concerto a cui sei interessato (lascia vuoto per tornare al menu): ")
 
             if scelta == "":
                 return
@@ -489,12 +493,12 @@ def ricerca_per_vicinanza():
 
     lat, lon = coordinate.latlng
     
-    print(f"Queste sono le tue coordinate: \nlatitudine: {lat}\nlongitudine: {lon}")
+    print(f"Queste sono le tue coordinate: \n\nlatitudine: {lat}\nlongitudine: {lon}")
 
     while True:
         
         try:
-            distanza_massima = input("Inserisci la distanza (in km) entro la quale vuoi visualizzare i concerti disponibili (lascia vuoto per tornare al menu): ")
+            distanza_massima = input("\nInserisci la distanza (in km) entro la quale vuoi visualizzare i concerti disponibili (lascia vuoto per tornare al menu): ")
 
             if distanza_massima == "":
                 return
@@ -505,7 +509,7 @@ def ricerca_per_vicinanza():
         
         except ValueError:
 
-            print("Non hai inserito un numero. Riprova")
+            print("\nNon hai inserito un numero. Riprova")
             continue
 
     concerti = db_concerti.ricerca_per_vicinanza(lat, lon, distanza_massima)
@@ -514,7 +518,7 @@ def ricerca_per_vicinanza():
 
     if numero_risultati == 0:
         print("Non ci sono concerti entro il raggio scelto.")
-        input("Premi 'invio' per continuare...")
+        input("\nPremi 'invio' per continuare...")
         return
 
     for i, concerto in enumerate(concerti, start=1):
@@ -529,7 +533,7 @@ def ricerca_per_vicinanza():
     while True:
 
         try:
-            scelta = input("Inserisci l'indice del concerto a cui sei interessato (lascia vuoto per tornare al menu): ")
+            scelta = input("\nInserisci l'indice del concerto a cui sei interessato (lascia vuoto per tornare al menu): ")
 
             if scelta == "":
                 return
@@ -537,13 +541,13 @@ def ricerca_per_vicinanza():
             scelta = int(scelta)
 
             if scelta > numero_risultati or scelta < 1:
-                print("Scelta non valida. Riprova.")
+                print("\nScelta non valida. Riprova.")
                 continue
             
             break
 
         except ValueError:
-            print("Inserisci un numero.")
+            print("\nInserisci un numero.")
 
     __acquista_biglietto(concerti[scelta-1])
     

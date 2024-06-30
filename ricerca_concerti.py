@@ -377,12 +377,35 @@ def ricerca_per_artista():
     else:
         query = {"artisti": {"$elemMatch": {"$or":[{"nome":{"$regex": nome_artista, "$options":"i"}}, {"cognome":{"$regex": nome_artista, "$options":"i"}}]}}}
 
-    nomi_concerti = collection.find(query)
-    for concerto in nomi_concerti:
-        print(concerto["nome"])
+    concerti = list(collection.find(query))
+
+    numero_risultati = len(concerti)
+
+    print("Questi sono i concerti disponibili:\n")
+    for i, concerto in enumerate(concerti, start=1):
+        print(f"{i}-   {concerto["nome"]}             [{concerto["data"]}]")
     
-    input("Premi 'invio' per continuare...")
-  
+    while True:
+
+        try:
+            scelta = input("Inserisci l'indice del concerto a cui sei interessato (lascia vuoto per tornare al menu): ")
+
+            if scelta == "":
+                return
+            
+            scelta = int(scelta)
+
+            if scelta > numero_risultati or scelta < 1:
+                print("Scelta non valida. Riprova.")
+                continue
+            
+            break
+
+        except ValueError:
+            print("Inserisci un numero.")
+
+    __acquista_biglietto(concerti[scelta-1])
+    
 @schermata
 def ricerca_per_data():
 

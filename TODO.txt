@@ -1,12 +1,18 @@
-OBBLIGATORIO:
-    - Visualizzare artista/i che partecipa/no al concerto
-    - Risalire al nome del concerto
+Obbiettivi del progetto:    
+
+    OBBLIGATORIO:
+        - Visualizzare artista/i che partecipa/no al concerto
+        - Risalire al nome del concerto
 
 
-OPZIONALE:
-    - Ricerca di concerti in un intervallo di date
-    - Ricerca per vicinanza (concerto entro tot km da un punto)
+    OPZIONALE:
+        - Ricerca di concerti in un intervallo di date
+        - Ricerca per vicinanza (concerto entro tot km da un punto)
 
 
-AGGIUNTIVO:
-    - Prezzo ridotto per categorie (bambini, anziani, donne in gravidanza)
+    AGGIUNTIVO:
+        - Prezzo ridotto per categorie (bambini, anziani, donne in gravidanza)
+
+
+Da fare:
+    - mostrare tutti i biglietti dell'utente attivo

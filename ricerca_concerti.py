@@ -249,7 +249,7 @@ def logout():
 @schermata
 def ricerca():
 
-    scelta = input("Come vuoi cercare il tuo concerto? \n1 - Cerca concerto\n2 - Cerca artista\n3 - Cerca date\n4 - Cerca per vicinanza\n5 - Consigliami un concerto\nq - Esci\n\nScelta: ")
+    scelta = input("Come vuoi cercare il tuo concerto? \n1 - Cerca concerto\n2 - Cerca artista\n3 - Cerca date\n4 - Cerca per vicinanza\n5 - Cerca per genere\nq - Esci\n\nScelta: ")
 
     match scelta:
         case "1":
@@ -261,7 +261,7 @@ def ricerca():
         case "4": 
             ricerca_per_vicinanza()
         case "5":
-            pass
+            ricerca_per_genere()
         case "q":
             return
         case _:
@@ -540,7 +540,43 @@ def ricerca_per_vicinanza():
 
     __acquista_biglietto(concerti[scelta-1])
     
+@schermata
+def ricerca_per_genere():
 
+    genere = input("Inserisci il genere che preferisci: ")
+
+    collection = db_concerti.db["concerti"]
+
+    concerti = list(collection.find({"generi":genere}))
+    
+    numero_risultati = numero_risultati = len(concerti)
+
+    print("\nEcco la lista dei concerti che potrebbero interessarti:\n\n------------------------------------------\n")
+    for i, concerto in enumerate(concerti, start=1):
+        print(f"{i} -  {concerto["nome"]}             [{concerto["data"]}]")
+    
+    
+
+    while True:
+
+        try:
+            scelta = input("\nInserisci l'indice del concerto a cui sei interessato (lascia vuoto per tornare al menu): ")
+
+            if scelta == "":
+                return
+            
+            scelta = int(scelta)
+
+            if scelta > numero_risultati or scelta < 1:
+                print("\nScelta non valida. Riprova.")
+                continue
+            
+            break
+
+        except ValueError:
+            print("\nInserisci un numero.")
+
+    __acquista_biglietto(concerti[scelta-1])
 
 
 if __name__ == "__main__":

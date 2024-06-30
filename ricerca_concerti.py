@@ -2,6 +2,7 @@ import os
 import time
 from datetime import datetime
 import pwinput
+import geocoder
 
 # importazione funzioni db
 import db
@@ -248,7 +249,7 @@ def logout():
 @schermata
 def ricerca():
 
-    scelta = input("Inserisci un'opzione: \n1 - Cerca concerto\n2 - Cerca artista\n3 - Cerca date\n4 - Cerca luogo\n5 - Consigliami un concerto\nq - Esci\n\nScelta: ")
+    scelta = input("Come vuoi cercare il tuo concerto? \n1 - Cerca concerto\n2 - Cerca artista\n3 - Cerca date\n4 - Cerca per vicinanza\n5 - Consigliami un concerto\nq - Esci\n\nScelta: ")
 
     match scelta:
         case "1":
@@ -478,8 +479,43 @@ def ricerca_per_data():
 
 @schermata
 def ricerca_per_vicinanza():
-    pass
+    
+    """
+    funzione che restituisce la lista dei concerti in base alla distanza da un punto di interesse.
+    funziona con ip geolocation.
+    """
+
+    coordinate = geocoder.ip("me")
+
+    lat, lon = coordinate.latlng
+    
+    print(f"Queste sono le tue coordinate: \nlatitudine: {lat}\nlongitudine: {lon}")
+
+    while True:
+        
+        try:
+            distanza_massima = int(input("Inserisci la distanza (in km) entro la quale vuoi visualizzare i concerti disponibili: "))
+
+            break
+        
+        except ValueError:
+
+            print("Non hai inserito un numero. Riprova")
+            continue
+
+    concerti = db_concerti.ricerca_per_vicinanza(lat, lon, distanza_massima)
+
+    print(concerti)
+
+    for concerto in concerti:
+        print(concerto, "a")
+
+    input("")
+    
+
+
 
 if __name__ == "__main__":
+
     while True:
         menu()

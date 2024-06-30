@@ -125,8 +125,11 @@ class DatabaseConcerti:
             print("Location:", concerto.get("location"))
             print("Data:", concerto.get("data"))
 
+    def crea_indice_geospaziale(self):
+        coll = self.db["concerti"]
+
+        coll.create_index([("coordinate", "2dsphere")])
+
 if __name__ == "__main__":
 
-    db = DatabaseConcerti()
-
-    db.mostra_biglietti("giulio")
+    pass

@@ -253,21 +253,14 @@ def ricerca():
     match scelta:
         case "1":
             ricerca_per_nome()
-           # acquista_biglietto(id_concerto)
         case "2":
             ricerca_per_artista()
-           # acquista_biglietto()
         case "3":
             ricerca_per_data()
-           # acquista_biglietto()
         case "4": 
-            print("Inserisci località:")
-           # ricerca_per_luogo()
-           # acquista_biglietto()
+            ricerca_per_vicinanza()
         case "5":
-            print("Ecco alcuni concerti che potrebbero interessarti:")
-           # concerti_consigliati()
-           # acquista_biglietto
+            pass
         case "q":
             return
         case _:
@@ -482,7 +475,10 @@ def ricerca_per_data():
             print("Inserisci un numero.")
 
     __acquista_biglietto(concerti[scelta-1])
-    
+
+@schermata
+def ricerca_per_vicinanza():
+    pass
 
 if __name__ == "__main__":
     while True:

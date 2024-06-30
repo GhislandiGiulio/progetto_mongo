@@ -130,6 +130,28 @@ class DatabaseConcerti:
 
         coll.create_index([("coordinate", "2dsphere")])
 
+    def ricerca_per_vicinanza(self, lat, lon, distanza_massima):
+        
+        coll = self.db["concerti"]
+        
+        # definizione della query per trovare i concerti vicini
+        query = {
+            "coordinate": {
+                "$near": {
+                    "$geometry": {
+                        "type": "Point",
+                        "coordinates": [lon, lat]
+                    },
+                    "$maxDistance": distanza_massima*1000
+                }
+            }
+        }
+
+        concerti_vicino = list(coll.find(query))
+
+        print(concerti_vicino )
+        return concerti_vicino
+
 if __name__ == "__main__":
 
     pass

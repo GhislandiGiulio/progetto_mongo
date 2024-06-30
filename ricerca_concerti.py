@@ -206,17 +206,17 @@ def login():
 
     password = pwinput.pwinput(prompt='Inserisci la password: ', mask='*')
 
-    ###
-    ### TODO: ricerca della coppia usename e password nel db per effettuare il login
-    ###
-
-    # se il login ha successo, cambia l'utente attivo TODO: da cambiare l'if
-    if True:
+    if db_concerti.check_credenziali(username, password):
         global utente_attivo
         utente_attivo = username
 
         print("Accesso riuscito.")
         input("Premi 'invio' per continuare...")
+        return
+    
+    print("Nome utente o password non corretti.")
+    input("Premi 'invio' per continuare...")
+    return
 
 
 @schermata

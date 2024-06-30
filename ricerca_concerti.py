@@ -281,6 +281,7 @@ def ricerca_per_concerto():
     if not concerto:
         print("Non trovato alcun concerto con questo nome")
         input("Premi 'invio' per continuare...")
+        return
 
     # salvataggio id per potenziale acquisto
     id_concerto = concerto.get("_id")
@@ -302,6 +303,8 @@ def ricerca_per_concerto():
     __acquista_biglietto(concerto)
 
 def __acquista_biglietto(concerto):
+
+    print(f"Biglietti del concerto: {concerto.get("nome")}")
 
     biglietti = []
 

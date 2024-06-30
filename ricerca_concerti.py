@@ -302,6 +302,7 @@ def ricerca_per_concerto():
 
     __acquista_biglietto(concerto)
 
+@schermata
 def __acquista_biglietto(concerto):
 
     print(f"Biglietti del concerto: {concerto.get("nome")}")

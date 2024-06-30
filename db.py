@@ -45,3 +45,11 @@ class DatabaseConcerti:
             return True
         
         return False
+    
+    def ricerca_concerto(self, concerto: dict):
+
+        coll = self.db["concerti"]
+
+        results = coll.find_one(concerto)
+
+        return results

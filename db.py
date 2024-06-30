@@ -1,5 +1,4 @@
 from pymongo import MongoClient
-import geocoder
 
 class DatabaseConcerti:
 
@@ -129,13 +128,7 @@ class DatabaseConcerti:
         coll = self.db["concerti"]
 
         coll.create_index([("coordinate", "2dsphere")])
-        
-        # le mie coordinate
-        coordinate = geocoder.ip("me")
 
-        print(coordinate.latlng)
-
-    
 
     def ricerca_per_vicinanza(self, lat, lon, distanza_massima):
         

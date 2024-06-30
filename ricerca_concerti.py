@@ -494,8 +494,13 @@ def ricerca_per_vicinanza():
     while True:
         
         try:
-            distanza_massima = int(input("Inserisci la distanza (in km) entro la quale vuoi visualizzare i concerti disponibili: "))
+            distanza_massima = input("Inserisci la distanza (in km) entro la quale vuoi visualizzare i concerti disponibili (lascia vuoto per tornare al menu): ")
 
+            if distanza_massima == "":
+                return
+
+            distanza_massima = int(distanza_massima)
+            
             break
         
         except ValueError:
@@ -505,12 +510,42 @@ def ricerca_per_vicinanza():
 
     concerti = db_concerti.ricerca_per_vicinanza(lat, lon, distanza_massima)
 
-    print(concerti)
+    numero_risultati = len(concerti)
 
-    for concerto in concerti:
-        print(concerto, "a")
+    if numero_risultati == 0:
+        print("Non ci sono concerti entro il raggio scelto.")
+        input("Premi 'invio' per continuare...")
+        return
 
-    input("")
+    for i, concerto in enumerate(concerti, start=1):
+        print("----------------------------------------------------------------")
+        print("      Concerto:", concerto.get("nome"))
+        print("      Provincia:", concerto.get("provincia"))
+        print(f"{i}     Città:", concerto.get("citta"))
+        print("      Indirizzo:", concerto.get("indirizzo"))
+        print("      Location:", concerto.get("location"))
+        print("      Data:", concerto.get("data"))
+
+    while True:
+
+        try:
+            scelta = input("Inserisci l'indice del concerto a cui sei interessato (lascia vuoto per tornare al menu): ")
+
+            if scelta == "":
+                return
+            
+            scelta = int(scelta)
+
+            if scelta > numero_risultati or scelta < 1:
+                print("Scelta non valida. Riprova.")
+                continue
+            
+            break
+
+        except ValueError:
+            print("Inserisci un numero.")
+
+    __acquista_biglietto(concerti[scelta-1])
     
 
 

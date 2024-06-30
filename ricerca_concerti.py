@@ -244,7 +244,7 @@ def ricerca():
 
     match scelta:
         case "1":
-            ricerca_per_concerto()
+            ricerca_per_nome()
            # acquista_biglietto(id_concerto)
         case "2":
             ricerca_per_artista()
@@ -267,7 +267,7 @@ def ricerca():
             input("Premi 'invio' per continuare...")
 
 @schermata
-def ricerca_per_concerto():
+def ricerca_per_nome():
 
     """
     funzione che restituisce le info sul concerto cercato.

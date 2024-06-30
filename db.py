@@ -5,7 +5,7 @@ class DatabaseConcerti:
 
     def __init__(self) -> None:
         # definizione costanti
-        self.uri = "mongodb://localhost:27017"
+        self.uri = "mongodb+srv://emanuelesassi:nsiZ2wXT69aa1kx5@cluster0.3xxugqa.mongodb.net/"
         self.nome_db = "db_concerti"
 
         # connessione al database MongoDB

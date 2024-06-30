@@ -20,7 +20,7 @@ def schermata(f):
         """
 
         # importazione variabile globale
-        global utente_attivoù
+        global utente_attivo
 
         if os.name == 'nt':
             # Per Windows
@@ -251,8 +251,7 @@ def ricerca():
             ricerca_per_artista()
            # acquista_biglietto()
         case "3":
-            print("Inserisci le date:")
-           # ricerca_per_data()
+            ricerca_per_data()
            # acquista_biglietto()
         case "4": 
             print("Inserisci località:")
@@ -271,6 +270,10 @@ def ricerca():
 
 @schermata
 def ricerca_per_concerto():
+
+    """
+    funzione che restituisce le info sul concerto cercato.
+    """
 
     nome_concerto = input("Inserisci il nome del concerto: ")
     
@@ -345,9 +348,15 @@ def ricerca_per_concerto():
 @ schermata
 def ricerca_per_artista():
 
+    """
+    funzione che restituisce la lista dei concerti in base al nome dell'artista cercato.
+    funziona inserendo sia il nome completo, sia solo nome o solo cognome.
+    eliminato case sensitive.
+    """
+
     nome_artista = input("Inserisci il nome dell'artista che si esibirà: ")
 
-    collection = db.db["concerti"]
+    collection = db_concerti.db["concerti"]
     
     query = {}
     if " " in nome_artista:
@@ -362,6 +371,54 @@ def ricerca_per_artista():
     
     input("Premi 'invio' per continuare...")
   
+@schermata
+def ricerca_per_data():
+
+    """
+    funzione che restituisce lista dei concerti tra due date.
+    se le date non verranno inserite correttamente le richiede.
+    se si desidera uscire premere 'invio'.
+    Inserito anche il sort delle date.
+    """
+
+    while True:
+        try:
+            data1 = input("Inserisci la prima data (yyyy)-(mm)-(dd): ")
+            if data1 == "":
+                # NOTA: magari cambiare exit e mettere che torna al menu
+                exit()
+            datetime.strptime(data1,r"%Y-%m-%d")
+            break
+        except ValueError:
+            print("Devi inserire la data correttamente")
+        
+    while True:
+        try: 
+            data2 = input("Inserisci la seconda data (yyyy)-(mm)-(dd): ")
+            datetime.strptime(data1,r"%Y-%m-%d")
+            break
+        except ValueError:
+            print("Devi inserire la data correttamente")
+    
+    date = [data1, data2]
+    date.sort()
+    
+    collection = db_concerti.db["concerti"]
+
+    query = {"data": {"$gte":date[0], "$lte":date[1]}}
+
+    nomi_concerti = collection.find(query)
+
+    print("Questi sono i concerti disponibili:\n")
+    for concerto in nomi_concerti:
+        print(f"{concerto["nome"]}             [{concerto["data"]}]")
+    
+    input("Premi 'invio' per continuare...")
+    
+
+
+
+
 
 
 if __name__ == "__main__":

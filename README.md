@@ -66,3 +66,6 @@ Adesso crea un container con port-forwarding:
 ``` powershell
 docker run -d --name my_mongo -p 27017:27017 mongo
 ```
+
+## 7. Inizializzazione del db
+Se hai accesso al db, puoi eseguire lo script "inizializza_dataset.py" per inizializzare il db con 33 concerti con cui testare lo script principale.

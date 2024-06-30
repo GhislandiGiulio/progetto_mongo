@@ -297,17 +297,21 @@ def ricerca_per_nome():
     indirizzo = concerto.get("indirizzo","Informazione non disponibile")
     
 
-    print("Alcune informazioni importanti sul tuo concerto:\n")
+    print("\nAlcune informazioni importanti sul tuo concerto:")
     print("\n--------------------------------------------------")
     print(f"artisti: {artisti}\ngeneri: {generi}\ndata: {data}\ncittà: {città}\nprovincia: {provincia}\nlocation: {location}\nindirizzo: {indirizzo}")
+    
+    opzione_acquisto = input("\nIntendi procedere con l'acquisto di un biglietto? y/n")
 
-
-    __acquista_biglietto(concerto)
+    if opzione_acquisto == "y":
+        __acquista_biglietto(concerto)
+    else:
+        input("Premi invio per uscire...")
 
 @schermata
 def __acquista_biglietto(concerto):
 
-    print(f"Biglietti del concerto: {concerto.get("nome")}")
+    print(f"Biglietti del concerto: {concerto.get("nome")}\n")
 
     biglietti = []
 
@@ -319,18 +323,18 @@ def __acquista_biglietto(concerto):
         biglietti.append(f"tipologia: {tipo}, prezzo: {prezzo} €, posti disponibili: {disponibili}")
 
     for i, biglietto in enumerate(biglietti, start=1):
-        print(f"   {i}-    {biglietto}")
+        print(f"{i} -  {biglietto}")
 
     print("\n--------------------------------------------------\n")
 
-    scelta = input("Vuoi procedere all'acquisto di uno dei biglietti?\n[y/n]")
+    scelta = input("Vuoi procedere all'acquisto di uno dei biglietti? [y/n]\n")
     
     while True:
         match scelta:
 
             case "y":
                 try:
-                    indice_biglietto = input("Inserisci l'indice del biglietto da acquistare (non inserire nulla per tornare al menu): ")
+                    indice_biglietto = input("\nInserisci l'indice del biglietto da acquistare (non inserire nulla per tornare al menu): ")
 
                     if indice_biglietto == "":
                         return
@@ -338,29 +342,29 @@ def __acquista_biglietto(concerto):
                     indice_biglietto = int(indice_biglietto)
 
                     if indice_biglietto > len(biglietti) or indice_biglietto < 1:
-                        print("Scegli un biglietto valido.")
+                        print("\nScegli un biglietto valido.")
                         continue
 
                 except:
-                    print("Inserimento non valido. Riprova.")
+                    print("\nInserimento non valido. Riprova.")
                     continue
 
                 esito = db_concerti.acquisto_biglietto(concerto.get("_id"), indice_biglietto-1, utente_attivo)
 
                 if esito:
-                    print("Acquisto effettuato con successo!")
-                    input("Premi 'invio' per tornare al menu...")
+                    print("\nAcquisto effettuato con successo!")
+                    input("\nPremi 'invio' per tornare al menu...")
                     return
                 
-                print("Acquisto non riuscito. Riprova.")
+                print("\nAcquisto non riuscito. Riprova.")
 
             case "n":
-                print("Acquisto annullato.")
-                input("Premi 'invio' per tornare al menu...")
+                print("\nAcquisto annullato.")
+                input("\nPremi 'invio' per tornare al menu...")
                 return
             
             case _:
-                print("Scelta non valida. Riprova.")
+                print("\nScelta non valida. Riprova.")
                 continue
 
 @ schermata

@@ -6,6 +6,9 @@ import pwinput
 # importazione funzioni db
 import db
 
+# creazione oggetto db
+db_concerti = db.DatabaseConcerti()
+
 # variabile che determina l'utente attivo
 utente_attivo = None
 
@@ -17,15 +20,14 @@ def schermata(f):
         """
 
         # importazione variabile globale
-        global utente_attivo
-        """
+        global utente_attivoù
+
         if os.name == 'nt':
             # Per Windows
             os.system('cls')
         else:
             # Per Unix/Linux/macOS
             os.system('clear')
-        """
 
         print("Utente attivo: ", end="")
 
@@ -54,8 +56,6 @@ def menu():
 
             case "2":
                 ricerca()
-                # TODO
-                pass
 
             case "q":
                 print("Sto eseguendo l'uscita dal programma...")
@@ -106,6 +106,10 @@ def registrazione():
         ### 
         ### TODO: aggiungere check sul db esistenza del nome utente. Se già esiste, fare reinserire
         ###
+
+        if db_concerti.esistenza_utente(username) == True:
+            print("Nome utente già esistente. Riprova.")
+            continue
         
         break
     
@@ -191,7 +195,10 @@ def registrazione():
         "password": password
     }
 
-    db.inserisci_nuovo_utente(info_nuovo_utente)
+    db_concerti.inserisci_nuovo_utente(info_nuovo_utente)
+
+    print("Utente creato con successo!")
+    input("Premi 'invio' per continuare...")
 
 @schermata
 def login():
@@ -235,6 +242,7 @@ def logout():
         
     input("Premi 'invio' per continuare...")
 
+@schermata
 def ricerca():
 
     scelta = input("Inserisci un'opzione: \n1 - Cerca concerto\n2 - Cerca artista\n3 - Cerca date\n4 - Cerca luogo\n5 - Consigliami un concerto\nq - Esci\n\nScelta: ")
@@ -266,6 +274,7 @@ def ricerca():
             print("Operazione non valida. Riprova.")
             input("Premi 'invio' per continuare...")
 
+@schermata
 def ricerca_per_concerto():
 
     nome_concerto = input("Inserisci il nome del concerto: ")
@@ -293,10 +302,13 @@ def ricerca_per_concerto():
         print(f"artisti: {artisti}\ngeneri: {generi}\ndata: {data}\ncittà: {città}\nprovincia: {provincia}\nlocation: {location}\nindirizzo: {indirizzo}\nbiglietti:")
         for biglietto in biglietti:
             print(f"       {biglietto}")
+        
+        input("Premi 'invio' per continuare...")
     else:
         print("Non trovato alcun concerto con questo nome")
+        input("Premi 'invio' per continuare...")
 
-
+@ schermata
 def ricerca_per_artista():
 
     nome_artista = input("Inserisci il nome dell'artista che si esibirà: ")
@@ -313,9 +325,9 @@ def ricerca_per_artista():
     nomi_concerti = collection.find(query)
     for concerto in nomi_concerti:
         print(concerto["nome"])
+    
+    input("Premi 'invio' per continuare...")
   
-
-
 
 
 if __name__ == "__main__":

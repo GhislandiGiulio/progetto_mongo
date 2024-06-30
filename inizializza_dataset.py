@@ -1,25 +1,15 @@
 import json
 from pymongo import MongoClient
 
-# importazione delle costanti del db
-from db import uri
-from db import nome_db
+import db
 
 # impostazione della cartella di esecuzione corretta
 import os
 script_dir = os.path.dirname(__file__)
 os.chdir(script_dir)
 
-
-def connessione_db(uri: str):
-    """
-    Funzione che inizializza la connessione con il db
-    """
-
-    global client
-
-    client = MongoClient(uri)
-
+# inizializzazione della connessione
+db_concerti = db.DatabaseConcerti() 
 
 def estrai_concerti() -> tuple:
     """
@@ -37,14 +27,12 @@ def insert(data, nome_collezione):
     Funzione che inserisce lista di oggetti json nel db
     """
 
-    db = client[nome_db]
-    coll = db[nome_collezione]
+    coll = db_concerti.db["concerti"]
 
     coll.insert_many(data)
 
 
 if __name__ == '__main__':
-    connessione_db(uri)
 
     # estrazione concerti
     concerti = estrai_concerti()
@@ -53,5 +41,5 @@ if __name__ == '__main__':
     insert(concerti, "concerti")
 
     # chiusura connessione
-    client.close()
+    db_concerti.client.close()
 

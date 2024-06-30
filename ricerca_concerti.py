@@ -317,10 +317,16 @@ def ricerca_per_concerto():
 
             case "y":
                 try:
-                    indice_biglietto = int(input("Inserisci l'indice del biglietto da acquistare: "))
+                    indice_biglietto = input("Inserisci l'indice del biglietto da acquistare (non inserire nulla per tornare al menu): ")
 
-                    if indice_biglietto > len(biglietti)+1 or indice_biglietto < 1:
+                    if indice_biglietto == "":
+                        return
+                    
+                    indice_biglietto = int(indice_biglietto)
+
+                    if indice_biglietto > len(biglietti) or indice_biglietto < 1:
                         print("Scegli un biglietto valido.")
+                        continue
 
                 except:
                     print("Inserimento non valido. Riprova.")

@@ -262,12 +262,11 @@ def ricerca():
            # concerti_consigliati()
            # acquista_biglietto
         case "q":
-            print("Sto tornando al menù...")
-            time.sleep(1)
-            exit(0)
+            return
         case _:
             print("Operazione non valida. Riprova.")
             input("Premi 'invio' per continuare...")
+
 
 @schermata
 def ricerca_per_concerto():
@@ -278,35 +277,73 @@ def ricerca_per_concerto():
 
     nome_concerto = input("Inserisci il nome del concerto: ")
     
-    collection = db_concerti.db["concerti"]
-    concerto = collection.find_one({"nome":nome_concerto})
+    concerto = db_concerti.ricerca_concerto({"nome":nome_concerto})
 
-    if concerto:
-        # id_concerto = concerto.get("_id")
-        artisti = ', '.join([f"{artista.get("nome","Nome non disponibile")} {artista.get("cognome","Cognome non disponibile")}" for artista in concerto.get("artisti",[])])
-        generi = ', '.join(concerto.get("generi",[]))
-        data = concerto.get("data","Informazione non disponibile")
-        città = concerto.get("città","Informazione non disponibile")
-        provincia = concerto.get("provincia","Informazione non disponibile")
-        location = concerto.get("location","Informazione non disponibile")
-        indirizzo = concerto.get("indirizzo","Informazione non disponibile")
-
-        biglietti = [] 
-        for biglietto in concerto.get("biglietti",[]):
-            tipo = biglietto.get("tipo","tipologia non disponibile")     
-            prezzo = biglietto.get("prezzo","prezzo non disponibile")  
-            disponibili = biglietto.get("numero_disponibili","Informazione non disponibile")
-            biglietti.append(f"tipologia: {tipo}, prezzo: {prezzo} €, posti disponibili: {disponibili}")
-
-        print("Alcune informazioni importanti sul tuo concerto:\n")
-        print(f"artisti: {artisti}\ngeneri: {generi}\ndata: {data}\ncittà: {città}\nprovincia: {provincia}\nlocation: {location}\nindirizzo: {indirizzo}\nbiglietti:")
-        for biglietto in biglietti:
-            print(f"       {biglietto}")
-        
-        input("Premi 'invio' per continuare...")
-    else:
+    # se non si trova alcun concerto con quel nome
+    if not concerto:
         print("Non trovato alcun concerto con questo nome")
         input("Premi 'invio' per continuare...")
+
+    # salvataggio id per potenziale acquisto
+    id_concerto = concerto.get("_id")
+
+    artisti = ', '.join([f"{artista.get("nome","Nome non disponibile")} {artista.get("cognome","Cognome non disponibile")}" for artista in concerto.get("artisti",[])])
+    generi = ', '.join(concerto.get("generi",[]))
+    data = concerto.get("data","Informazione non disponibile")
+    città = concerto.get("città","Informazione non disponibile")
+    provincia = concerto.get("provincia","Informazione non disponibile")
+    location = concerto.get("location","Informazione non disponibile")
+    indirizzo = concerto.get("indirizzo","Informazione non disponibile")
+    biglietti = [] 
+
+    for biglietto in concerto.get("biglietti",[]):
+        tipo = biglietto.get("tipo","tipologia non disponibile")     
+        prezzo = biglietto.get("prezzo","prezzo non disponibile")  
+        disponibili = biglietto.get("numero_disponibili","Informazione non disponibile")
+        biglietti.append(f"tipologia: {tipo}, prezzo: {prezzo} €, posti disponibili: {disponibili}")
+
+    print("Alcune informazioni importanti sul tuo concerto:\n--------------------------------------------------\n")
+    print(f"artisti: {artisti}\ngeneri: {generi}\ndata: {data}\ncittà: {città}\nprovincia: {provincia}\nlocation: {location}\nindirizzo: {indirizzo}\nbiglietti:")
+
+    for i, biglietto in enumerate(biglietti, start=1):
+        print(f"   {i}-    {biglietto}")
+    
+    print("\n--------------------------------------------------\n")
+
+    scelta = input("Vuoi procedere all'acquisto di uno dei biglietti?\n[y/n]")
+    
+    while True:
+        match scelta:
+
+            case "y":
+                try:
+                    indice_biglietto = int(input("Inserisci l'indice del biglietto da acquistare: "))
+
+                    if indice_biglietto > len(biglietti)+1 or indice_biglietto < 1:
+                        print("Scegli un biglietto valido.")
+
+                except:
+                    print("Inserimento non valido. Riprova.")
+                    continue
+
+                esito = db_concerti.acquisto_biglietto(id_concerto, indice_biglietto-1, utente_attivo)
+
+                if esito:
+                    print("Acquisto effettuato con successo!")
+                    input("Premi 'invio' per tornare al menu...")
+                    return
+                
+                print("Acquisto non riuscito. Riprova.")
+
+            case "n":
+                print("Acquisto annullato.")
+                input("Premi 'invio' per tornare al menu...")
+                return
+            
+            case _:
+                print("Scelta non valida. Riprova.")
+                input("Premi 'invio' per continuare...")
+
 
 @ schermata
 def ricerca_per_artista():
@@ -387,6 +424,3 @@ def ricerca_per_data():
 if __name__ == "__main__":
     while True:
         menu()
-
-
-

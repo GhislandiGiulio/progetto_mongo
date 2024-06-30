@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 
 # definizione costanti
-uri = "mongodb://localhost:27017"
+uri = "mongodb+srv://giulioghislandi:NsR0y8Sf1ypk11O8@cluster0.nlkhmot.mongodb.net/"
 nome_db = "db_concerti"
 
 # connessione al database MongoDB

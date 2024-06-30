@@ -18,13 +18,14 @@ def schermata(f):
 
         # importazione variabile globale
         global utente_attivo
-        
+        """
         if os.name == 'nt':
             # Per Windows
             os.system('cls')
         else:
             # Per Unix/Linux/macOS
             os.system('clear')
+        """
 
         print("Utente attivo: ", end="")
 
@@ -52,7 +53,7 @@ def menu():
                 logout()
 
             case "2":
-                # ricerca()
+                ricerca()
                 # TODO
                 pass
 
@@ -234,7 +235,92 @@ def logout():
         
     input("Premi 'invio' per continuare...")
 
+def ricerca():
+
+    scelta = input("Inserisci un'opzione: \n1 - Cerca concerto\n2 - Cerca artista\n3 - Cerca date\n4 - Cerca luogo\n5 - Consigliami un concerto\nq - Esci\n\nScelta: ")
+
+    match scelta:
+        case "1":
+            ricerca_per_concerto()
+           # acquista_biglietto(id_concerto)
+        case "2":
+            ricerca_per_artista()
+           # acquista_biglietto()
+        case "3":
+            print("Inserisci le date:")
+           # ricerca_per_data()
+           # acquista_biglietto()
+        case "4": 
+            print("Inserisci località:")
+           # ricerca_per_luogo()
+           # acquista_biglietto()
+        case "5":
+            print("Ecco alcuni concerti che potrebbero interessarti:")
+           # concerti_consigliati()
+           # acquista_biglietto
+        case "q":
+            print("Sto tornando al menù...")
+            time.sleep(1)
+            exit(0)
+        case _:
+            print("Operazione non valida. Riprova.")
+            input("Premi 'invio' per continuare...")
+
+def ricerca_per_concerto():
+
+    nome_concerto = input("Inserisci il nome del concerto: ")
+    
+    collection = db.db["concerti"]
+    concerto = collection.find_one({"nome":nome_concerto})
+
+    if concerto:
+        # id_concerto = concerto.get("_id")
+        artisti = ', '.join([f"{artista.get("nome","Nome non disponibile")} {artista.get("cognome","Cognome non disponibile")}" for artista in concerto.get("artisti",[])])
+        generi = ', '.join(concerto.get("generi",[]))
+        data = concerto.get("data","Informazione non disponibile")
+        città = concerto.get("città","Informazione non disponibile")
+        provincia = concerto.get("provincia","Informazione non disponibile")
+        location = concerto.get("location","Informazione non disponibile")
+        indirizzo = concerto.get("indirizzo","Informazione non disponibile")
+        biglietti = [] 
+        for biglietto in concerto.get("biglietti",[]):
+            tipo = biglietto.get("tipo","tipologia non disponibile")     
+            prezzo = biglietto.get("prezzo","prezzo non disponibile")  
+            disponibili = biglietto.get("numero_disponibili","Informazione non disponibile")
+            biglietti.append(f"tipologia: {tipo}, prezzo: {prezzo} €, posti disponibili: {disponibili}")
+
+        print("Alcune informazioni importanti sul tuo concerto:\n")
+        print(f"artisti: {artisti}\ngeneri: {generi}\ndata: {data}\ncittà: {città}\nprovincia: {provincia}\nlocation: {location}\nindirizzo: {indirizzo}\nbiglietti:")
+        for biglietto in biglietti:
+            print(f"       {biglietto}")
+    else:
+        print("Non trovato alcun concerto con questo nome")
+
+
+def ricerca_per_artista():
+
+    nome_artista = input("Inserisci il nome dell'artista che si esibirà: ")
+
+    collection = db.db["concerti"]
+    
+    query = {}
+    if " " in nome_artista:
+        nome, cognome = nome_artista.split(" ", 1)
+        query = {"artisti": {"$elemMatch":{"nome":{"$regex": nome, "$options":"i"}, "cognome":{"$regex": cognome, "$options":"i"}}}}
+    else:
+        query = {"artisti": {"$elemMatch": {"$or":[{"nome":{"$regex": nome_artista, "$options":"i"}}, {"cognome":{"$regex": nome_artista, "$options":"i"}}]}}}
+
+    nomi_concerti = collection.find(query)
+    for concerto in nomi_concerti:
+        print(concerto["nome"])
+  
+
+
+
 
 if __name__ == "__main__":
     while True:
         menu()
+
+
+

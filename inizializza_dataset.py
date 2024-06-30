@@ -23,7 +23,7 @@ def connessione_db(uri: str):
 
 def estrai_concerti() -> tuple:
     """
-    Funzione che estrare in concerti dal file json e li inserisce nel db
+    Funzione che estrare i concerti dal file json e li inserisce nel db
     """
 
     with open("data/concerti.json", "r") as file_concerti:

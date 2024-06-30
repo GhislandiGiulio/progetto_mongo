@@ -156,7 +156,6 @@ class DatabaseConcerti:
 
         concerti_vicino = list(coll.find(query))
 
-        print(concerti_vicino )
         return concerti_vicino
 
 if __name__ == "__main__":

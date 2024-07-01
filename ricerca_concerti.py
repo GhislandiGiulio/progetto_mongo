@@ -283,10 +283,13 @@ def ricerca_per_nome():
         if not concerto:
             print("Non ho trovato alcun concerto con questo nome.")
             continua = input("Vuoi inserire un altro nome di concerto? [y/n]: ").strip().lower()
-            if continua != "y":
-                return
-            else:
+            if continua == "y":
                 continue
+            elif "_":
+                print("Opzione non valida, riprovare")
+                continue
+            elif "n":
+                return
 
     # salvataggio id per potenziale acquisto
         id_concerto = concerto.get("_id")

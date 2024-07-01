@@ -334,9 +334,10 @@ def __acquista_biglietto(concerto):
 
     print("\n--------------------------------------------------\n")
 
-    scelta = input("Vuoi procedere all'acquisto di uno dei biglietti?\n[y/n]")
     
     while True:
+        
+        scelta = input("Vuoi procedere all'acquisto di uno dei biglietti?\n[y/n]")
 
         match scelta:
             case "y":

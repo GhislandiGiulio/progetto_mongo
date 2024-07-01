@@ -274,35 +274,45 @@ def ricerca_per_nome():
     """
     funzione che restituisce le info sul concerto cercato.
     """
-
-    nome_concerto = input("Inserisci il nome del concerto: ")
+    while True:
+        nome_concerto = input("Inserisci il nome del concerto: ")
     
-    concerto = db_concerti.ricerca_concerto({"nome":nome_concerto})
+        concerto = db_concerti.ricerca_concerto({"nome":nome_concerto})
 
     # se non si trova alcun concerto con quel nome
-    if not concerto:
-        print("Non trovato alcun concerto con questo nome")
-        input("Premi 'invio' per continuare...")
-        return
+        if not concerto:
+            print("Non ho trovato alcun concerto con questo nome.")
+            continua = input("Vuoi inserire un altro nome di concerto? [y/n]: ").strip().lower()
+            if continua != "y":
+                return
+            else:
+                continue
 
     # salvataggio id per potenziale acquisto
-    id_concerto = concerto.get("_id")
+        id_concerto = concerto.get("_id")
 
-    artisti = ', '.join([f"{artista.get("nome","Nome non disponibile")} {artista.get("cognome","Cognome non disponibile")}" for artista in concerto.get("artisti",[])])
-    generi = ', '.join(concerto.get("generi",[]))
-    data = concerto.get("data","Informazione non disponibile")
-    città = concerto.get("città","Informazione non disponibile")
-    provincia = concerto.get("provincia","Informazione non disponibile")
-    location = concerto.get("location","Informazione non disponibile")
-    indirizzo = concerto.get("indirizzo","Informazione non disponibile")
-    
+        artisti = ', '.join([f"{artista.get("nome","Nome non disponibile")} {artista.get("cognome","Cognome non disponibile")}" for artista in concerto.get("artisti",[])])
+        generi = ', '.join(concerto.get("generi",[]))
+        data = concerto.get("data","Informazione non disponibile")
+        città = concerto.get("città","Informazione non disponibile")
+        provincia = concerto.get("provincia","Informazione non disponibile")
+        location = concerto.get("location","Informazione non disponibile")
+        indirizzo = concerto.get("indirizzo","Informazione non disponibile")
 
-    print("Alcune informazioni importanti sul tuo concerto:\n")
-    print("\n--------------------------------------------------")
-    print(f"artisti: {artisti}\ngeneri: {generi}\ndata: {data}\ncittà: {città}\nprovincia: {provincia}\nlocation: {location}\nindirizzo: {indirizzo}")
+        info_concerto = f"""
+        Alcune informazioni importanti sul tuo concerto:
 
-
-    __acquista_biglietto(concerto)
+--------------------------------------------------
+    artisti: {artisti}
+    generi: {generi}
+    data: {data}
+    città: {città}
+    provincia: {provincia}
+    location: {location}
+    indirizzo: {indirizzo}
+    """
+        print(info_concerto)
+        __acquista_biglietto(concerto)
 
 @schermata
 def __acquista_biglietto(concerto):

@@ -274,46 +274,35 @@ def ricerca_per_nome():
     """
     funzione che restituisce le info sul concerto cercato.
     """
-    while True:
-        nome_concerto = input("Inserisci il nome del concerto: ")
+
+    nome_concerto = input("Inserisci il nome del concerto: ")
     
-        concerto = db_concerti.ricerca_concerto({"nome":nome_concerto})
+    concerto = db_concerti.ricerca_concerto({"nome":nome_concerto})
 
     # se non si trova alcun concerto con quel nome
-        if concerto is None:
-            print("Non ho trovato alcun concerto con questo nome.")
-            continua = input("Vuoi inserire un altro nome di concerto? [y/n]: ").strip().lower()
-            while continua not in ['y', 'n']:
-                print("Scelta non valida, riprova.")
-                continua = input("Vuoi inserire un altro nome di concerto? [y/n]: ").strip().lower()
-            if continua != "y":
-                return
-        else:
-            # salvataggio id per potenziale acquisto
-            id_concerto = concerto.get("_id")
+    if not concerto:
+        print("Non trovato alcun concerto con questo nome")
+        input("Premi 'invio' per continuare...")
+        return
 
-            artisti = ', '.join([f"{artista.get("nome","Nome non disponibile")} {artista.get("cognome","Cognome non disponibile")}" for artista in concerto.get("artisti",[])])
-            generi = ', '.join(concerto.get("generi",[]))
-            data = concerto.get("data","Informazione non disponibile")
-            città = concerto.get("città","Informazione non disponibile")
-            provincia = concerto.get("provincia","Informazione non disponibile")
-            location = concerto.get("location","Informazione non disponibile")
-            indirizzo = concerto.get("indirizzo","Informazione non disponibile")
+    # salvataggio id per potenziale acquisto
+    id_concerto = concerto.get("_id")
 
-            info_concerto = f"""
-            Alcune informazioni importanti sul tuo concerto:
+    artisti = ', '.join([f"{artista.get("nome","Nome non disponibile")} {artista.get("cognome","Cognome non disponibile")}" for artista in concerto.get("artisti",[])])
+    generi = ', '.join(concerto.get("generi",[]))
+    data = concerto.get("data","Informazione non disponibile")
+    città = concerto.get("città","Informazione non disponibile")
+    provincia = concerto.get("provincia","Informazione non disponibile")
+    location = concerto.get("location","Informazione non disponibile")
+    indirizzo = concerto.get("indirizzo","Informazione non disponibile")
+    
 
---------------------------------------------------
-    artisti: {artisti}
-    generi: {generi}
-    data: {data}
-    città: {città}
-    provincia: {provincia}
-    location: {location}
-    indirizzo: {indirizzo}
-    """
-            print(info_concerto)
-            __acquista_biglietto(concerto)
+    print("Alcune informazioni importanti sul tuo concerto:\n")
+    print("\n--------------------------------------------------")
+    print(f"artisti: {artisti}\ngeneri: {generi}\ndata: {data}\ncittà: {città}\nprovincia: {provincia}\nlocation: {location}\nindirizzo: {indirizzo}")
+
+
+    __acquista_biglietto(concerto)
 
 @schermata
 def __acquista_biglietto(concerto):
@@ -337,6 +326,7 @@ def __acquista_biglietto(concerto):
     scelta = input("Vuoi procedere all'acquisto di uno dei biglietti?\n[y/n]")
     
     while True:
+        scelta = input("Vuoi procedere all'acquisto di uno dei biglietti?\n[y/n]: ").strip().lower()
 
         match scelta:
             case "y":
@@ -560,33 +550,38 @@ def ricerca_per_genere():
     concerti = list(collection.find({"generi":genere}))
     
     numero_risultati = numero_risultati = len(concerti)
-
-    print("\nEcco la lista dei concerti che potrebbero interessarti:\n\n------------------------------------------\n")
-    for i, concerto in enumerate(concerti, start=1):
-        print(f"{i} -  {concerto["nome"]}             [{concerto["data"]}]")
     
+    if numero_risultati > 0:
+        print("\nEcco la lista dei concerti che potrebbero interessarti:\n\n------------------------------------------\n")
+        for i, concerto in enumerate(concerti, start=1):
+            print(f"{i} -  {concerto["nome"]}             [{concerto["data"]}]")
+        
+        
+
+        while True:
+
+            try:
+                scelta = input("\nInserisci l'indice del concerto a cui sei interessato (lascia vuoto per tornare al menu): ")
+
+                if scelta == "":
+                    return
+                
+                scelta = int(scelta)
+
+                if scelta > numero_risultati or scelta < 1:
+                    print("\nScelta non valida. Riprova.")
+                    continue
+                
+                break
+
+            except ValueError:
+                print("\nInserisci un numero.")
+
+        __acquista_biglietto(concerti[scelta-1])
     
-
-    while True:
-
-        try:
-            scelta = input("\nInserisci l'indice del concerto a cui sei interessato (lascia vuoto per tornare al menu): ")
-
-            if scelta == "":
-                return
-            
-            scelta = int(scelta)
-
-            if scelta > numero_risultati or scelta < 1:
-                print("\nScelta non valida. Riprova.")
-                continue
-            
-            break
-
-        except ValueError:
-            print("\nInserisci un numero.")
-
-    __acquista_biglietto(concerti[scelta-1])
+    else:
+        print("Non esistono generi che potrebbero interessarti.")
+        input("Premi invio per tornare al menu.")
 
 
 if __name__ == "__main__":
